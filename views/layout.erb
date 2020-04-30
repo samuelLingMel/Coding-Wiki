@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<% articles = all_articles() %>
+<body>
+    <div class="grid_2_columns">
+        <aside class="first_col">
+            <nav class="home">
+                <a href="/">Home</a>
+                <p><%= session[:user_id] %></p>
+            </nav>
+            
+            <nav class="articles">
+                <h3>Articles</h3>
+                <% articles.each do |article| %>
+                <li><a href="/article/<%= article['id'] %>"><%= article["title"] %></a></li>
+                <% end %>
+                <a href="/article/create">Add an article</a>
+            </nav>
+        </aside>
+        <div class="second_col">
+            <div class="user">
+            <% if logged_in?() %>
+            <div>logged in as <%= session["username"] %></div>
+            <% else %>
+            <a href="/user/login">login</a> | <a href="/user/signup">sign up</a>
+            <% end %>
+            </div>
+            <%= yield %>
+        </div>
+    </div>
+    <footer>&copy 2020 please don't steal this</footer>
+</body>
+</html>
+

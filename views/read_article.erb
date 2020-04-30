@@ -1,0 +1,13 @@
+<h1><%= article["title"] %></h1>
+
+<main>
+
+<img src='<%= article["diagram_url"]%>'>
+<%= article["body"] %>
+</main>
+<footer>
+<a href="/article/<%= article["id"] %>/edit">edit</a>
+<a href="/article/<%= article["id"] %>/delete">delete</a>
+</footer>
+
+

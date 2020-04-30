@@ -1,0 +1,10 @@
+<h1><%= params[:title] %></h1>
+
+<main>Are you sure you want to delete this article? why not edit it instead?</main>
+    <form action="/article" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="id" value="<%= params[:id] %>">
+    <button>Yes</button>
+</form>
+
+<a href="/article/<%= params[:id] %>/edit">Edit</a>
