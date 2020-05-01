@@ -7,7 +7,7 @@ def run_sql(sql, params = [])
 end
 
 def all_articles()
-    sql = "select * from articles order;"
+    sql = "select * from articles;"
     run_sql(sql)
 end
 
