@@ -6,7 +6,7 @@
         <input type="text" name="body" value="body" %>
         <input type="text" name="diagram_url"value="diagram_url" %>
     </main>
-    <input type="hidden" name="user_id" value=1>
+    <input type="hidden" name="user_id" value="<%= session[:user_id] %>">
     <footer>
         <button>submit</button>
     </footer>
