@@ -1,0 +1,13 @@
+
+<h1><%= user["username"] %></h1>
+
+<main><%= user["email"] %></main>
+
+<main><h2>Your articles</h2>
+
+<% if articles2 %>
+    <ul><% articles2.each do |article| %>
+    <li><a href="/article/<%= article['id'] %>"><%= article['title'] %></a></li>
+    <% end %></ul>
+<% end %>
+</main>

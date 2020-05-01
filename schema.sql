@@ -48,3 +48,45 @@ delete from articles where user_id = $1;
 email lingofthesam@gmail.com
 username Samuel lingofthesam
 password scII
+
+title: 'Programatic thinking' body:
+The title programatic thinking might be a little misleading but this is about knowing how a machine thinks and in particular giving them instructions. We are starting here because machines think very different from humans. 
+
+I'd like to start with an example of how we give instructions to take a step. For people would be "hey you, take a step forward"
+
+With a machine you would have to be far more explicit. 
+Lift your foot forward bending at the hip and the knee.
+Lean forward and lower foot.
+
+Imagine the smartest person you have ever met but they dont understand context at all or have any commonsense. 
+
+When we are giving commands to machine we will use code.
+Machines will read code in the same way humans read english: start at the top left read each line then move on to the next line.
+
+Datatypes 
+
+You can think of datatypes as the most basic block of coding.
+
+String are an array of characters generally words and sentences.
+Numbers are numbers which can be integers or decimals.
+Boolean can be true or false.
+Null or Nil have no value.
+Object are key-value pairs which can be used to store data where if you know the key you can get the value.
+Arrays are used to list or store multiple items.
+
+Generally languages will have similar datatypes although names might change. Just keep strings, numbers, boolean, objects & arrays in mind going forward because methods or functions will take specific datatypes. 
+
+
+
+
+Flow Control
+As talked about in programtic thinking, computers executes a page from top to bottom. In coding flow control is the manipulation of the way the computer is executing the code. 
+The main statements of flow control inlcude:
+If statement used to put a condition on code will not execute the else if else in the same statement.
+Else if statement puts different condition after the initial if has not been met an additional branch for it to follow.
+Else when none of the conditions have been met it will run what is under else.
+Loops can execute the same code multiple times.
+Functions can be used to store a block of code to be called later or multiple times.
+
+Scope
+

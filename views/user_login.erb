@@ -1,9 +1,11 @@
-<h1>login</h1>
 
+<h1>login</h1>
+<main class="error"><%= error %></main>
 <form action="/user/login" method="post" style="display: grid; grid-template-columns: 40% 1fr">
-    <label for="">email</label>
+    <label for="">email:</label>
     <input type="text" name="email">
-    <label for="">password</label>
+    <label for="">password:</label>
     <input type="password" name="password">
-    <button>submit</button>
+    <button>login</button>
 </form>
+

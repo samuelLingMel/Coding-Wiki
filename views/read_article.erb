@@ -5,9 +5,11 @@
 <img src='<%= article["diagram_url"]%>'>
 <%= article["body"] %>
 </main>
+<% if session[:user_id] == article["user_id"] || session[:user_id] == 1%>
 <footer>
 <a href="/article/<%= article["id"] %>/edit">edit</a>
 <a href="/article/<%= article["id"] %>/delete">delete</a>
 </footer>
+<% end %>
 
 

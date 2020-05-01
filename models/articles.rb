@@ -7,8 +7,18 @@ def run_sql(sql, params = [])
 end
 
 def all_articles()
-    sql = "select * from articles;"
+    sql = "select * from articles order;"
     run_sql(sql)
+end
+
+def find_all_articles_by_user_id(user_id)
+    sql = "select * from articles where user_id = $1"
+    records = run_sql(sql, [user_id])
+    if records.count == 0
+        return nil
+    else
+        return records
+    end
 end
 
 def find_one_article_by_id(id)

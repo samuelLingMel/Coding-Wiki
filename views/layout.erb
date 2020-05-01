@@ -12,21 +12,19 @@
         <aside class="first_col">
             <nav class="home">
                 <a href="/">Home</a>
-                <p><%= session[:user_id] %></p>
             </nav>
-            
             <nav class="articles">
                 <h3>Articles</h3>
-                <% articles.each do |article| %>
+                <ul><% articles.each do |article| %>
                 <li><a href="/article/<%= article['id'] %>"><%= article["title"] %></a></li>
-                <% end %>
-                <a href="/article/create">Add an article</a>
+                <% end %></ul>
+                <a class="add_article" href="/article/create">Add an article</a>
             </nav>
         </aside>
         <div class="second_col">
             <div class="user">
             <% if logged_in?() %>
-            <div>logged in as <%= session["username"] %></div>
+            <div>logged in as <a href="/user/<%= session["user_id"] %>"><%= session["username"] %></a></div><a href="/user/logout">(logout)</a>
             <% else %>
             <a href="/user/login">login</a> | <a href="/user/signup">sign up</a>
             <% end %>

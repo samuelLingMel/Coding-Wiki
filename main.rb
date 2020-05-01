@@ -17,8 +17,7 @@ get '/article/create' do
     if logged_in?()
         erb(:add_article)
     else 
-        error = "Please sign in to make content."
-        erb(:login, locals: {error: error})
+        erb(:user_login, locals: { error: 'please make an account to create articles'})
     end
 end
 
@@ -66,25 +65,33 @@ get '/user/signup' do
 end
 
 get '/user/login' do
-    erb(:user_login)
+    erb(:user_login, locals: { error: ""})
 end
 
 
-# get '/user/:id' do
-#     connect to users db 
-#     link to user.erb
-#     look at user data
-#     edit and delete accessible from here
-# end
+get '/user/logout' do
+    session[:user_id] = nil
+    session[:username] = nil
+    redirect '/user/login'
+end
+
+get '/user/:id' do
+    user = find_one_user_by_id(params[:id])
+    articles = find_all_articles_by_user_id(user["user_id"])
+    erb(:show_user, locals: {user: user, articles2: articles})
+end
+
+
 
 post '/user/login' do
     user = find_one_user_by_email( params[:email] )
 
     if user && BCrypt::Password.new(user["password_digest"]) == params[:password] 
-        session[:user_id] = user['id']
-        redirect "/"
+        session[:user_id] = user['user_id']
+        session[:username] = user['username']
+        redirect '/'
     else 
-        erb(:login, locals: {error: "your email or password is incorrect"})
+        erb(:user_login, locals: {error: "your email or password is incorrect"})
     end
 end
 
@@ -103,5 +110,6 @@ delete '/user' do
     delete_all_articles_by_user_id(params[:id])
     redirect '/'
 end
+
 
 

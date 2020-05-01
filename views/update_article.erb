@@ -10,9 +10,11 @@
         <input type="text" name="body" value="<%= article["body"] %>">
         <input type="text" name="diagram_url"value="<%= article["diagram_url"] %>">
     </main>
+    <% if session[:user_id] == article["user_id"] || session[:user_id] == 1%>
     <footer>
         <button>submit</button>
     </footer>
+    <% end %>
 </form>
 
 

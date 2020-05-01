@@ -1,0 +1,19 @@
+
+
+<form action="/user" method="post">
+    <input name="_method" value="patch" type="hidden">
+    <input type="hidden" name="id" value="<%= user["user_id"] %>">
+    <h1>
+        <input type="text" name="email" value="<%= user["title"] %>">
+    </h1>
+    <main>
+        <input type="password" name="password" value="<%= user["body"] %>">
+        <input type="text" name="username"value="<%= user["diagram_url"] %>">
+    </main>
+    <% if session[:user_id] == user["user_id"] || session[:user_id] == 1%>
+    <footer>
+        <button>submit</button>
+    </footer>
+    <% end %>
+</form>
+
